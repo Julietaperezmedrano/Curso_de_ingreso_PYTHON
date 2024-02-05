@@ -7,7 +7,6 @@ import customtkinter
 '''
 nombre: Julieta
 apellido: Perez Medrano
-División D
 ---
 Ejercicio: entrada_salida_02
 ---
@@ -28,7 +27,8 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        
+        nombre = prompt(title="Nombre", prompt="Ingrese su nombre")
+        alert(message=nombre)
         pass
         
         

@@ -5,17 +5,21 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
-nombre:
-apellido:
+nombre: Julieta 
+apellido: Perez Medrano
 ---
 TP: IF_Iluminacion
 ---
 Enunciado:
 Todas las lámparas están  al mismo precio de $800 pesos final.
 		A.	Si compra 6 o más  lamparitas bajo consumo tiene un descuento del 50%. 
-		B.	Si compra 5  lamparitas bajo consumo marca "ArgentinaLuz" se hace un descuento del 40 % y si es de otra marca el descuento es del 30%.
-		C.	Si compra 4  lamparitas bajo consumo marca "ArgentinaLuz" o “FelipeLamparas” se hace un descuento del 25 % y si es de otra marca el descuento es del 20%.
-		D.	Si compra 3  lamparitas bajo consumo marca "ArgentinaLuz"  el descuento es del 15%, si es  “FelipeLamparas” se hace un descuento del 10 % y si es de otra marca un 5%.
+		B.	Si compra 5  lamparitas bajo consumo marca "ArgentinaLuz" se hace un descuento del 40 % y 
+        si es de otra marca el descuento es del 30%.
+		C.	Si compra 4  lamparitas bajo consumo marca "ArgentinaLuz" o “FelipeLamparas” se hace un descuento del 25 % 
+        y si es de otra marca el descuento es del 20%.
+		D.	Si compra 3  lamparitas bajo consumo marca "ArgentinaLuz"  el descuento es del 15%, 
+        si es  “FelipeLamparas” se hace un descuento del 10 % 
+        y si es de otra marca un 5%.
 		E.	Si el importe final con descuento suma más de $4000  se obtien un descuento adicional de 5%.
 '''
 
@@ -43,6 +47,38 @@ class App(customtkinter.CTk):
 
 
     def btn_calcular_on_click(self):
+        marca = self.combobox_marca.get()
+        cantidad = int(self.combobox_cantidad.get())
+
+        precio_lamparas = 800
+        descuento = 0
+
+        if cantidad >= 6:
+            descuento = 0.50
+        elif cantidad == 5 and marca == "ArgentinaLuz":
+            descuento = 0.40
+        elif cantidad == 5:
+            descuento = 0.30
+        elif cantidad == 4 and (marca == "ArgentinaLuz" or marca == "FelipeLamparas"):
+            descuento = 0.25
+        elif cantidad == 4:
+            descuento = 0.20
+        elif cantidad == 3 and marca == "ArgentinaLuz":
+            descuento = 0.15
+        elif cantidad == 3 and marca == "FelipeLamparas":
+            descuento = 0.10
+        elif cantidad == 3:
+            descuento = 0.05
+
+        total = cantidad * precio_lamparas 
+        total_con_descuento = total - (total * descuento)
+
+        if total_con_descuento > 4000:
+            total_con_descuento -= total * 0.05
+
+        mensaje = alert(message=f"El total es de {total}\n El total con descuento es de {total_con_descuento}")
+        if total_con_descuento > 4000:
+            alert(message="Tiene descuento adicional del 5%")
         pass
         
     

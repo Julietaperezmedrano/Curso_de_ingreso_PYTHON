@@ -5,8 +5,8 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
-nombre:
-apellido:
+nombre: Julieta
+apellido: Perez Medrano
 ---
 Ejercicio: if_06bis
 ---
@@ -39,6 +39,18 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
+        altura = float(self.txt_altura.get())
+
+        if altura <= 160:
+            posicion = "BASE"
+        elif altura > 160 and altura < 180:
+            posicion = "ESCOLTA"
+        elif altura >= 180 and altura < 200:
+            posicion = "ALERO"
+        else:
+            posicion = "ALA-PIVOT O PIVOT"
+
+        alert(message=f"En base a la altura su posición es: {posicion}")
         pass
 
         

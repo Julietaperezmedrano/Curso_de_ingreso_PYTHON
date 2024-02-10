@@ -41,11 +41,11 @@ class App(customtkinter.CTk):
     def btn_mostrar_on_click(self):
         altura = float(self.txt_altura.get())
 
-        if altura <= 160:
+        if altura < 161:
             posicion = "BASE"
         elif altura > 160 and altura < 180:
             posicion = "ESCOLTA"
-        elif altura >= 180 and altura < 200:
+        elif altura < 200:
             posicion = "ALERO"
         else:
             posicion = "ALA-PIVOT O PIVOT"

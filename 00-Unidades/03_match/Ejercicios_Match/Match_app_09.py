@@ -6,8 +6,8 @@ import customtkinter
 
 
 '''
-nombre:
-apellido:
+nombre: Julieta
+apellido: Perez MEedrano
 ---
 Ejercicio: Match_09
 ---
@@ -57,7 +57,40 @@ class App(customtkinter.CTk):
         
     
     def btn_informar_on_click(self):
-        pass
+        estaciones = self.combobox_estaciones.get()
+        destinos = self.combobox_destino.get()
+        estadia = 15000
+
+        match estaciones:
+            case "Invierno":
+                match destinos:
+                    case "Bariloche":
+                        precio_final = estadia + (0.20 * estadia)
+                    case "Cataratas" | "Cordoba":
+                        precio_final = estadia - (0.10 * estadia)
+                    case "Mar del plata":
+                        precio_final = estadia - (0.20 * estadia)
+            case "Verano":
+                match destinos:
+                    case "Bariloche":
+                        precio_final = estadia - (0.20 * estadia)
+                    case "Cataratas" | "Cordoba":
+                        precio_final = estadia + (0.10 * estadia)
+                    case "Mar del plata":
+                        precio_final = estadia + (0.20 * estadia)
+            case "Primavera" | "Otoño":
+                match destinos:
+                    case "Bariloche":
+                        precio_final = estadia + (0.10 * estadia)
+                    case "Cataratas":
+                        precio_final = estadia + (0.10 * estadia)
+                    case "Mar del plata":
+                        precio_final = estadia + (0.10 * estadia)
+                    case "Cordoba":
+                        precio_final = estadia
+
+        alert(message=f"El precio final es de: {precio_final}")
+
             
     
 if __name__ == "__main__":

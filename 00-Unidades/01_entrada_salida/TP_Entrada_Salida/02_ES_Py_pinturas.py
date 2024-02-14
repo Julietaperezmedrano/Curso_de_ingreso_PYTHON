@@ -51,15 +51,14 @@ class App(customtkinter.CTk):
         centigrados = float(self.txt_temperatura_c.get())
         calculo = (centigrados * 9/5) + 32 
 
-        respuesta = alert(message=f"El calculo pasado de C° a F° me da: {calculo} F°")
+        alert(message=f"El calculo pasado de C° a F° me da: {calculo} F°")
         pass
 
     def btn_convertir_f_c_on_click(self):
         fahrenheit = float(self.txt_temperatura_f.get())
         calculo = (fahrenheit - 32) * 5/9 
 
-        respuesta = alert(message=f"El calculo pasado de F° a C° me da: {calculo} C°")
-        pass
+        alert(message=f"El calculo pasado de F° a C° me da: {calculo} C°")
     
     
 if __name__ == "__main__":

@@ -5,8 +5,8 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
-nombre:
-apellido:
+nombre: Julieta
+apellido: Perez Medrano
 ---
 TP: While_validaciones_rising_btl
 ---
@@ -55,7 +55,23 @@ class App(customtkinter.CTk):
         self.btn_validar.grid(row=4, pady=20, columnspan=2, sticky="nsew")
 
     def btn_validar_on_click(self):
-        pass
+        apellido = prompt("Ingreso", "Ingrese su apellido")
+
+        edad = prompt("Edad", "Ingrese su edad")
+        edad = int(edad)
+        while edad > 91 or edad < 18:
+            edad = prompt("Error", "Ingrese una edad válida")
+            edad = int(edad)
+
+        estado_civil = prompt("Civil", "Diga su estado civil (Soltero/a, Casado/a, Divorciado/a, Viudo/a)")
+        while estado_civil != "Soltero/a" and estado_civil != "Casado/a" and estado_civil != "Divorciado/a" and estado_civil != "Viudo/a":
+            estado_civil = prompt("Error", "Ingrese un estado civil válido")
+
+        numero_legajo = prompt("Legajo", "Ingrese su numero de legajo")
+        numero_legajo = int(numero_legajo)
+        while numero_legajo < 1000 or numero_legajo > 9999:
+            numero_legajo = prompt("Error", "El legajo debe tener 4 digitos")
+            numero_legajo = int(numero_legajo)
 
 
 if __name__ == "__main__":

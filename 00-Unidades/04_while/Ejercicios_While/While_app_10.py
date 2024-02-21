@@ -63,7 +63,7 @@ class App(customtkinter.CTk):
             else:
                 cantidad_ceros += 1
         
-        diferencia = suma_positivos - suma_negativos
+        diferencia = cantidad_positivos - cantidad_negativos
 
         alert(message=f"La suma acumulada de los negativos es: {suma_negativos}\n La suma acumulada de los positivos es {suma_positivos}\n La cantidad de numeros positivos ingresados es {cantidad_positivos}\n La cantidad de numeros negativos ingresados es {cantidad_negativos}\n La cantidad de ceros es: {cantidad_ceros} \n La diferencia entre positivos y negativos es de {diferencia}")
 
